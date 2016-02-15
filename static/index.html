@@ -54,7 +54,8 @@
 
     var socket = io();
     socket.on('randData', function(data) {
-      series = chart.series[0].addPoint([data.x, data.y]);
+      var series = chart.series[0];
+      series.addPoint([data.x, data.y], true, series.data.length > 30);
     });
   });
   </script>
